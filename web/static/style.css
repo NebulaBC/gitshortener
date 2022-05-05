@@ -14,6 +14,14 @@ body {
   font-size: 16px;
 }
 
+a {
+  color: #6272a4;
+}
+
+.center {
+  font-size: 60;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #f8f8f2;
