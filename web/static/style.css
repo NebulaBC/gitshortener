@@ -1,0 +1,22 @@
+/* style.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+:root {
+  --text: #282a36;
+  --bg: #f8f8f2;
+}
+
+body {
+  font-family: monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f8f8f2;
+    --bg: #282a36;
+  }
+}
