@@ -13,5 +13,5 @@ Flask sqLite Apache Waitress
 
 Notes:
 
-- This is not in a working state yet so do not try to deploy. Once it it working I will supply instructions.
+- This is not in a working state yet so do not try to deploy. Once it is working I will supply instructions.
 - links.db will be emptied after testing for obvious reasons
