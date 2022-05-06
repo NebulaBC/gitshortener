@@ -1,4 +1,5 @@
 import sqlite3
+from waitress import serve
 from flask import Flask, render_template
 
 app = Flask(
@@ -13,9 +14,14 @@ app = Flask(
 def index():
     return render_template("/index.html")
 
+# @app.route("/<url>")
+# def reroute(url):
+#     return render_template("/index.html")
+
 
 if __name__ == "__main__":
     app.run()
+    # serve(app, host='0.0.0.0', port=8080)
 
 
 @app.errorhandler(404)

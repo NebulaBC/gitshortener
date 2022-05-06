@@ -9,7 +9,20 @@
         <link rel="stylesheet" type="text/css" href="/style.css"/>
     </head>
     <body>
+        <script>
+            var texts = [
+                "We don't got dat..",
+                "How did we get here?",
+                "No such page chief!",
+                "<a href=\"report\">Report abuse?</a>",
+                "Whoops!",
+                "You gotta make the link first"
+            ];
+            window.onload = function(){
+                document.getElementById("randomText").innerHTML = texts[Math.floor(Math.random()*texts.length)];
+            }
+        </script>
         <h1 class="center" style="top: 47%; font-size: 6vw;">404</h1>
-        <h1 class="center" style="top: 52%; font-size: 1vw;">We don't got dat</h1>
+        <h1 class="center" style="top: 52%; font-size: 1vw;"><span id="randomText"></span></h1>
     </body>
 </html>
