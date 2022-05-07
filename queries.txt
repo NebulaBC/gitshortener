@@ -1,0 +1,1 @@
+INSERT INTO "main"."links"("url","originalurl","deleteuuid","creationstamp") VALUES (NULL,NULL,NULL,NULL);
