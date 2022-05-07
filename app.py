@@ -16,15 +16,16 @@ app = Flask(
 @app.route("/")
 def index():
     return render_template("/index.html")
-    
-@app.route('/', methods=['POST'])
+
+
+@app.route("/", methods=["POST"])
 def my_form_post():
-    text = request.form['text']
+    text = request.form["text"]
     processed_text = text.upper()
     try:
-        sqLiteConnection = sqlite3.connect('links.sqlite')
+        sqLiteConnection = sqlite3.connect("links.sqlite")
         cursor = sqLiteConnection.cursor()
-        sqliteCommand = "INSERT INTO \"main\".\"links\"(\"url\",\"originalurl\",\"deleteuuid\",\"creationstamp\") VALUES (NULL,NULL,NULL,NULL);"
+        sqliteCommand = 'INSERT INTO "main"."links"("url","originalurl","deleteuuid","creationstamp") VALUES (NULL,NULL,NULL,NULL);'
         cursor.execute(sqliteCommand)
         sqLiteConnection.commit()
         record = cursor.fetchall()
