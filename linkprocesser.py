@@ -7,7 +7,7 @@ def processurl(url):
     domain = urlparse(url).netloc
     if domain == "":
         print("Please input a valid URL!")
-    elif domain == "github.com":
+    elif domain == "github.com" or domain == "gitlab.com":
         shortlink = (
             str(
                 subprocess.check_output(
