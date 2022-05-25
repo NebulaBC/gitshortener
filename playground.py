@@ -1,3 +1,4 @@
 from linkprocesser import *
 
-processurl("https://github.com/NebulaBC/gitshortener")
+url = "https://github.com/nebulabc/autorestart"
+print(processurl(url))
