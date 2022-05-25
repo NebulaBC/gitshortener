@@ -1,7 +1,7 @@
 import sqlite3
 import uuid
 from waitress import serve
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, abort
 import config
 from connectionmanager import executedb
 
@@ -12,12 +12,22 @@ app = Flask(
     template_folder="web/templates",
 )
 
-# print(uuid.uuid4())'
-
 
 @app.route("/")
 def index():
-    return render_template("/index.html", themecss=config.themecss)
+    return render_template("/index.html", themecss=config.themecss, servicename=config.servicename)
+
+@app.route("/about")
+def about():
+    return render_template("/about.html", themecss=config.themecss, about=config.about)
+
+@app.route("/privacy")
+def privacy():
+    if config.privacyredirect.lower() != "true":
+        return render_template("/privacy.html", themecss=config.themecss, privacypolicy=config.privacypolicy)
+    else:
+        return redirect(config.privacypolicylink)
+    
 
 
 @app.route("/report")
@@ -28,13 +38,21 @@ def report():
 
 
 @app.route("/", methods=["POST"])
-def my_form_post():
+def linkcreate():
     text = request.form["text"]
     processed_text = text.upper()
     executedb(
         'INSERT INTO "main"."links"("url","originalurl","deleteuuid","creationstamp") VALUES (NULL,NULL,NULL,NULL);'
     )
     return processed_text
+
+@app.route('/<shortlink>')
+def url_redirect(shortlink):
+    if shortlink == "a":
+        return redirect("google.com")
+    else:
+        abort(404)
+
 
 
 @app.errorhandler(404)
