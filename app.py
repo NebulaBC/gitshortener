@@ -3,6 +3,7 @@ import uuid
 from waitress import serve
 from flask import Flask, render_template, redirect, request
 import config
+from connectionmanager import executedb
 
 app = Flask(
     __name__,
@@ -16,40 +17,29 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return render_template("/index.html")
+    return render_template("/index.html", themecss=config.themecss)
 
 
 @app.route("/report")
 def report():
-    return render_template("/report.html", reporturl=config.reporturl)
+    return render_template(
+        "/report.html", reporturl=config.reporturl, themecss=config.themecss
+    )
 
 
 @app.route("/", methods=["POST"])
 def my_form_post():
     text = request.form["text"]
     processed_text = text.upper()
-    try:
-        sqLiteConnection = sqlite3.connect("links.sqlite")
-        cursor = sqLiteConnection.cursor()
-        sqliteCommand = 'INSERT INTO "main"."links"("url","originalurl","deleteuuid","creationstamp") VALUES (NULL,NULL,NULL,NULL);'
-        cursor.execute(sqliteCommand)
-        sqLiteConnection.commit()
-        record = cursor.fetchall()
-        print(record)
-        cursor.close()
-
-    except sqlite3.Error as error:
-        print("Error:", error)
-    finally:
-        if sqLiteConnection:
-            sqLiteConnection.close()
-            print("sqLiteConnection closed")
+    executedb(
+        'INSERT INTO "main"."links"("url","originalurl","deleteuuid","creationstamp") VALUES (NULL,NULL,NULL,NULL);'
+    )
     return processed_text
 
 
 @app.errorhandler(404)
 def invalid_route(e):
-    return render_template("/404.html")
+    return render_template("/404.html", themecss=config.themecss)
 
 
 # @app.route("/git/<url>")
