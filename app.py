@@ -15,19 +15,26 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return render_template("/index.html", themecss=config.themecss, servicename=config.servicename)
+    return render_template(
+        "/index.html", themecss=config.themecss, servicename=config.servicename
+    )
+
 
 @app.route("/about")
 def about():
     return render_template("/about.html", themecss=config.themecss, about=config.about)
 
+
 @app.route("/privacy")
 def privacy():
     if config.privacyredirect.lower() != "true":
-        return render_template("/privacy.html", themecss=config.themecss, privacypolicy=config.privacypolicy)
+        return render_template(
+            "/privacy.html",
+            themecss=config.themecss,
+            privacypolicy=config.privacypolicy,
+        )
     else:
         return redirect(config.privacypolicylink)
-    
 
 
 @app.route("/report")
@@ -46,13 +53,13 @@ def linkcreate():
     )
     return processed_text
 
-@app.route('/<shortlink>')
+
+@app.route("/<shortlink>")
 def url_redirect(shortlink):
     if shortlink == "a":
         return redirect("google.com")
     else:
         abort(404)
-
 
 
 @app.errorhandler(404)
