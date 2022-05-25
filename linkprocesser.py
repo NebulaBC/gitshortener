@@ -1,6 +1,6 @@
 import os
-import subprocess
 from urllib.parse import urlparse
+import config
 
 
 def processurl(url):
@@ -12,7 +12,7 @@ def processurl(url):
             str(os.path.basename(url.rsplit(".git", 1)[0])).rstrip("\\n'").lstrip("b'")
         )
         if len(shortlink) <= 100:
-            return "https://g.neb.cx/" + shortlink
+            return config.baseurl + shortlink
         else:
             return "Your repo is over 100chars!"
     else:

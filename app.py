@@ -2,6 +2,7 @@ import sqlite3
 import uuid
 from waitress import serve
 from flask import Flask, render_template, redirect, request
+import config
 
 app = Flask(
     __name__,
@@ -20,7 +21,7 @@ def index():
 
 @app.route("/report")
 def report():
-    return render_template("/report.html")
+    return render_template("/report.html", reporturl=config.reporturl)
 
 
 @app.route("/", methods=["POST"])
