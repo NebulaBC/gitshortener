@@ -25,5 +25,7 @@ python3 app.py
 
 to start.
 
+Todo:
+ - Add hashing support for IPs (as to not leak PII)
 
 Note: I am not responsible for any vulnerabilities this program could have, or data leakage.
