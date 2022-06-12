@@ -59,6 +59,10 @@ def linkcreate():
     text = request.form["text"]
     processed_text = quote(text.lower(), safe="/.?&#,!:")
     returntext = processurl(processed_text, deleteid)
+    if request.headers.getlist("X-Forwarded-For"):
+        ip = request.headers.getlist("X-Forwarded-For")[0]
+    else:
+        ip = request.remote_addr
     if canshortlink(processed_text):
         shorturl = quote(getshortlink(processed_text), safe="/.?&#,!:")
         executedb(
@@ -71,7 +75,7 @@ def linkcreate():
             + '","'
             + timestamp
             + '","'
-            + str(hasher.encode(request.remote_addr))
+            + str(hasher.encode(ip))
             + '");'
         )
     return returntext
