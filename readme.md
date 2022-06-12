@@ -25,7 +25,12 @@ python3 app.py
 
 to start.
 
-Todo:
- - Add hashing support for IPs (as to not leak PII)
+IPs from links.db are encoded, if you would like to decode an ip to view it you can run
+
+```
+python3 DecodeIP.py
+```
+
+and follow the steps it gives you
 
 Note: I am not responsible for any vulnerabilities this program could have, or data leakage.

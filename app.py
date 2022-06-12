@@ -3,6 +3,7 @@ import uuid
 from waitress import serve
 from flask import Flask, render_template, redirect, request, abort
 import config
+import hasher
 from connectionmanager import executedb
 from linkprocesser import canshortlink, getshortlink, processurl
 import datetime
@@ -70,7 +71,7 @@ def linkcreate():
             + '","'
             + timestamp
             + '","'
-            + request.remote_addr
+            + str(hasher.encode(request.remote_addr))
             + '");'
         )
     return returntext
