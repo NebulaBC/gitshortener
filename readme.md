@@ -1,4 +1,4 @@
-Source code for neb.cx Git-Shortener
+Source code for neb.cx gitshortener
 -------------
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
