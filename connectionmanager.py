@@ -10,7 +10,7 @@ def executedb(sqliteCommand):
         sqLiteConnection.commit()
         record = cursor.fetchall()
         cursor.close()
-        return(record)
+        return record
     except sqlite3.Error as error:
         print("Error:", error)
     finally:

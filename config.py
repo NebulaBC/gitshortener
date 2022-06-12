@@ -13,6 +13,4 @@ privacyredirect = (
     "true"  # Disable this if you would like to display on-page html (set below)
 )
 privacypolicy = "<center><h1>your html (if you're not using a redirect)</h1></center>"
-privacypolicylink = (
-    "https://www.example.com/privacy/"  # Only redirects if privacyredirect is set to true
-)
+privacypolicylink = "https://www.example.com/privacy/"  # Only redirects if privacyredirect is set to true
