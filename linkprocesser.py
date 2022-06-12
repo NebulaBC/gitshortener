@@ -57,12 +57,12 @@ def canshortlink(url):
     safeurl = quote(url, safe="/.?&#,!:")
     if (
         domain == ""
-        or getshortlink(safeurl) == "about"
-        or getshortlink(safeurl) == "privacy"
-        or getshortlink(safeurl) == "report"
+        or getshortlink(safeurl).lower() == "about"
+        or getshortlink(safeurl).lower() == "privacy"
+        or getshortlink(safeurl).lower() == "report"
         or executedb(
             'SELECT COUNT(*) FROM "main"."links" WHERE "url" LIKE \''
-            + getshortlink(safeurl)
+            + getshortlink(safeurl).lower()
             + "';"
         )[0][0]
         != 0

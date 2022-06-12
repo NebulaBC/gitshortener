@@ -84,17 +84,17 @@ def linkcreate():
 @app.route("/<shortlink>")
 def url_redirect(shortlink):
     if (
-        shortlink == "url"
-        or shortlink == "about"
-        or shortlink == "privacy"
-        or shortlink == "report"
+        shortlink.lower() == "url"
+        or shortlink.lower() == "about"
+        or shortlink.lower() == "privacy"
+        or shortlink.lower() == "report"
     ):
         abort(404)
     try:
         return redirect(
             executedb(
                 'SELECT "originalurl" FROM "main"."links" WHERE "url" = "{}";'.format(
-                    quote(shortlink, safe="/.?&#,!:")
+                    quote(shortlink, safe="/.?&#,!:").lower()
                 )
             )[0][0]
         )
