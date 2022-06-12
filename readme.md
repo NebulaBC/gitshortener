@@ -11,8 +11,16 @@ Git-Shortener is a github/gitlab link shortener. I created this service around
 This project uses the FLAW stack:
 Flask sqLite Apache Waitress
 
+To setup, 
 
-Notes:
+```
+pip3 install -r requirements.txt
+```
 
-- This is not in a useable state yet so do not try to deploy. Once it is working I will supply instructions.
-- links.db will be emptied after testing for obvious reasons
+Then you can edit `config.py` to your liking. After you are done with that you can
+
+```
+python3 app.py
+```
+
+to start.
