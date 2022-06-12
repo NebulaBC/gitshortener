@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-There are no released versions yet, but the source is supported for security reports.
+Latest Source
 
 ## Reporting a Vulnerability
 
