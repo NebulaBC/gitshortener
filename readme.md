@@ -24,3 +24,6 @@ python3 app.py
 ```
 
 to start.
+
+
+Note: I am not responsible for any vulnerabilities this program could have, or data leakage.
