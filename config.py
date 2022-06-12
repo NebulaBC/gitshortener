@@ -2,7 +2,7 @@
 
 servicename = "example.com gitshortener"
 baseurl = "https://g.example.com/"
-reporturl = "https://form.123formbuilder.com/embed/6168318.js"
+reporturl = "https://form.123formbuilder.com/embed/6168318.js" # Do not leave default or reports with possible sensitive info will go to me!!
 themecss = "/dracula.css/"
 
 # About page
