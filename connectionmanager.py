@@ -9,12 +9,10 @@ def executedb(sqliteCommand):
         cursor.execute(sqliteCommand)
         sqLiteConnection.commit()
         record = cursor.fetchall()
-        print(record)
         cursor.close()
-
+        return(record)
     except sqlite3.Error as error:
         print("Error:", error)
     finally:
         if sqLiteConnection:
             sqLiteConnection.close()
-            print("sqLiteConnection closed")
