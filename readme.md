@@ -25,7 +25,7 @@ python3 app.py
 
 to start.
 
-IPs from links.db are encoded, if you would like to decode an ip to view it you can run
+IPs from links.sqlite are encoded, if you would like to decode an ip to view it you can run
 
 ```
 python3 DecodeIP.py
