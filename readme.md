@@ -33,4 +33,4 @@ python3 DecodeIP.py
 
 and follow the steps it gives you
 
-Note: I am not responsible for any vulnerabilities this program could have, or data leakage.
+Note: I am not responsible for any vulnerabilities this program could have, or data leakage. Use at your own risk!
